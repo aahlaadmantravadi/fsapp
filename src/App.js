@@ -119,12 +119,7 @@ const App = ({ signOut }) => {
         type="file"
         style={{ alignSelf: "end" }}
       />
-      <Button onClick={signOut}>Sign Out</Button>
-    </View>
-  );
-};
-
-{notes.map((note) => (
+      {notes.map((note) => (
   <Flex
     key={note.id || note.name}
     direction="row"
@@ -147,5 +142,9 @@ const App = ({ signOut }) => {
     </Button>
   </Flex>
 ))}
+      <Button onClick={signOut}>Sign Out</Button>
+    </View>
+  );
+};
 
 export default withAuthenticator(App);
