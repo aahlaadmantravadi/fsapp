@@ -17,6 +17,7 @@ import {
   createNote as createNoteMutation,
   deleteNote as deleteNoteMutation,
 } from "./graphql/mutations";
+
 const App = ({ signOut }) => {
   const [notes, setNotes] = useState([]);
 
@@ -56,8 +57,6 @@ const App = ({ signOut }) => {
     fetchNotes();
     event.target.reset();
   }
-
-
   async function deleteNote({ id, name }) {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
@@ -69,8 +68,15 @@ const App = ({ signOut }) => {
   }
 
   return (
+
     <View className="App">
       <Heading level={1}>My Notes App</Heading>
+      <View
+        name="image"
+        as="input"
+        type="file"
+        style={{ alignSelf: "end" }}
+      />
       <View as="form" margin="3rem 0" onSubmit={createNote}>
         <Flex direction="row" justifyContent="center">
           <TextField
@@ -120,13 +126,6 @@ const App = ({ signOut }) => {
           </Flex>
         ))}
       </View>
-      <View
-        name="image"
-        as="input"
-        type="file"
-        style={{ alignSelf: "end" }}
-      />
-
       <Button onClick={signOut}>Sign Out</Button>
     </View>
   );
