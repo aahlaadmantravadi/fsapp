@@ -14,6 +14,12 @@
     "categories": {
       "auth": {
         "notesreactappce077759": {}
+      },
+      "api": {
+        "notesreactapp": {}
+      },
+      "storage": {
+        "ImageStorage": {}
       }
     }
   }
